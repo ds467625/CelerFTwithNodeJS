@@ -47,6 +47,11 @@ var enableCORS = function (request, response, next) {
 // Enable CORS in express
 app.use(enableCORS);
 
+app.use(express.static(__dirname, { index: 'Default.html' }));
+
+// Startup the express.js application
+app.listen(process.env.PORT || 1337);
+
 // Fix problem wth nodejs reporting can't set headers after they are set
 // http://stackoverflow.com/questions/7042340/node-js-error-cant-set-headers-after-they-are-sent
 app.use(function (req, res, next) {
